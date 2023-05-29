@@ -5,7 +5,6 @@ const container = document.querySelector(".container"), // Elements mother
   getLocationBtn = document.querySelector("#getLocation"), // Location btn
   textInput = document.querySelector("#inputText"); // Place to enter the city name
 
-
 // HTML codes to append
 const resultMenu = `<div class="result">
   <div class="result-header">
@@ -57,7 +56,7 @@ const getDataByCoord = async function (latitude, longitude) {
     `http://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=e00607edef068ecf074650739c8b816d&units=metric`
   );
   const DataInCoord = await responseInCoord.json();
-
+  console.log(DataInCoord);
   return DataInCoord;
 };
 
@@ -100,6 +99,26 @@ textInput.addEventListener("keydown", (event) => {
   }
 });
 
+const apiKey = "38ea907934b446dfbfc21c2d33443111"; // Replace with your actual API key
+const url = `https://api.ipgeolocation.io/ipgeo?apiKey=${apiKey}`;
+
+getLocationBtn.addEventListener("click", function () {
+  fetch(
+    "https://api.opencagedata.com/geocode/v1/json?key=38ea907934b446dfbfc21c2d33443111&q=52.3877830%2C+9.7334394&pretty=1&no_annotations=1"
+  )
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(data.results[0].geometry);
+      const latitude = data.results[0].geometry.lat;
+      const longitude = data.results[0].geometry.lng;
+      container.removeChild(container.firstChild);
+      container.innerHTML = resultMenu;
+      loadContent(getDataByCoord, latitude, longitude);
+    })
+    .catch((error) => console.log(error));
+});
+
+/*
 getLocationBtn.addEventListener("click", function () {
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(
@@ -111,14 +130,11 @@ getLocationBtn.addEventListener("click", function () {
         loadContent(getDataByCoord, latitude, longitude);
       },
       (error) => {
-        console.error(error);
+        console.log(error);
       }
     );
   } else {
     console.error("Geolocation is not supported by this browser.");
   }
 });
-
-// git remote add origin https://github.com/RezaBakhshiNia/Weather-App.git
-// git branch -M main
-// git push -u origin main
+*/
