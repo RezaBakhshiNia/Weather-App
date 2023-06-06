@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/login/src/styles/sup.css" />
+    <link
+      id="favIcon"
+      rel="icon"
+      type="image/png"
+      href="/login/src/assets/favIcon.png"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <script type="module" defer src="/login/src/logic/signIn.js"></script>
+    <title>Log in for weather app</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="signUp">
+        <div class="title">
+          <img src="/login/src/assets/logo.jpg" alt="logo" />
+          <span>Storm App</span>
+        </div>
+        <input id="userID" type="text" placeholder="Enter your user name." />
+        <input
+          id="password"
+          type="password"
+          placeholder="Enter your password."
+        />
+        <div class="action">
+          <button id="login" class="button-30" role="button">Login</button>
+          <a href="/login/signUp.html">Need to create account?</a>
+        </div>
+      </div>
+      <div id="modal" class="bg-modal">
+        <div class="modal-contents">
+          <article class="modal__article">
+            <p id="modalMessage" class="modal-msg">
+              As we said to you before, Try another user name.
+            </p>
+          </article>
+        </div>
+      </div>
+      <section id="loading">
+        <div class="loader">
+          <span style="--i: 1"></span>
+          <span style="--i: 2"></span>
+          <span style="--i: 3"></span>
+          <span style="--i: 4"></span>
+          <span style="--i: 5"></span>
+          <span style="--i: 6"></span>
+          <span style="--i: 7"></span>
+          <span style="--i: 8"></span>
+          <span style="--i: 9"></span>
+          <span style="--i: 10"></span>
+          <span style="--i: 11"></span>
+          <span style="--i: 12"></span>
+          <span style="--i: 13"></span>
+          <span style="--i: 14"></span>
+          <span style="--i: 15"></span>
+          <span style="--i: 16"></span>
+          <span style="--i: 17"></span>
+          <span style="--i: 18"></span>
+          <span style="--i: 19"></span>
+          <span style="--i: 20"></span>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>
